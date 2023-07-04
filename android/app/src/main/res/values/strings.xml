@@ -1,3 +1,4 @@
 <resources>
-    <!-- <string name="app_name">chapter2</string> -->
+ <!-- app名称配置 -->
+    <string name="app_name">test</string> 
 </resources>
