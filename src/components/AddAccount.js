@@ -55,7 +55,7 @@ export default forwardRef((props, ref) => {
   const hide = () => {
     setVisible(false);
   };
-
+  // 暴露子组件的特定方法或属性，使父组件与子组件之间的通信更加灵活
   useImperativeHandle(ref, () => {
     return {
       show,

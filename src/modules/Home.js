@@ -1,3 +1,4 @@
+/* eslint-disable react-native/no-inline-styles */
 import React, {useRef, useEffect, useState} from 'react';
 import {
   StyleSheet,
@@ -49,13 +50,15 @@ export default () => {
   const loadData = () => {
     load('accountList').then(data => {
       const accountList = JSON.parse(data);
-
+      // localStorage
+      console.log(accountList);
       const gameList = accountList.filter(item => item.type === '游戏') || [];
       const platformList =
         accountList.filter(item => item.type === '平台') || [];
       const bankList = accountList.filter(item => item.type === '银行卡') || [];
       const otherList = accountList.filter(item => item.type === '其它') || [];
 
+      // eslint-disable-next-line no-shadow
       const sectionData = [
         {type: '游戏', data: gameList},
         {type: '平台', data: platformList},
@@ -165,7 +168,9 @@ export default () => {
 
       <SectionList
         sections={sectionData}
-        keyExtractor={(item, index) => `${item}-${index}`}
+        keyExtractor={(item, index) => {
+          return `${item}-${index}`;
+        }}
         renderItem={renderItem}
         renderSectionHeader={renderSectionHeader}
         contentContainerStyle={styles.listContainer}
