@@ -143,7 +143,7 @@ export default () => {
           onPress={() => {
             const copy = {...sectionState};
             copy[section.type] = !copy[section.type];
-            LayoutAnimation.easeInEaseOut();
+            LayoutAnimation.easeInEaseOut(); // 动画
             setSectionState(copy);
           }}>
           <Image
